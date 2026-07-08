@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D-Style — Branded Streetwear</title>
+<meta name="description" content="D-Style: premium branded streetwear. Hoodies, tracksuits, caps & beanies. Order direct via WhatsApp." />
+<meta property="og:title" content="D-Style — Branded Streetwear" />
+<meta property="og:description" content="Premium branded streetwear. Order direct via WhatsApp." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" />
+<style>
+  :root {
+    --ink: #1a1917;
+    --card: #232220;
+    --muted: #2a2926;
+    --border: rgba(255,255,255,0.1);
+    --cream: #f4efe4;
+    --cream-70: rgba(244,239,228,0.7);
+    --muted-fg: #a19c8f;
+    --blood: #d63d2b;
+    --gold: #e5b955;
+    --shadow-brand: 0 20px 60px -20px rgba(214,61,43,0.45);
+    --shadow-lift: 0 30px 80px -30px rgba(0,0,0,0.6);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink); color: var(--cream);
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, .display { font-family: "Bebas Neue", sans-serif; letter-spacing: 0.02em; font-weight: 400; line-height: 1; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(26,25,23,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; max-width: 1200px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 36px; height: 36px; background: var(--blood); color: var(--cream); display: grid; place-items: center; font-family: "Bebas Neue"; font-size: 20px; border-radius: 4px; }
+  .logo-text { font-family: "Bebas Neue"; font-size: 24px; letter-spacing: 0.2em; }
+  .nav-links { display: none; align-items: center; gap: 32px; }
+  .nav-links a.link { font-size: 14px; font-weight: 500; color: var(--muted-fg); transition: color .2s; }
+  .nav-links a.link:hover { color: var(--cream); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; border: 0; cursor: pointer; transition: filter .2s, background .2s; }
+  .btn-primary { background: var(--blood); color: var(--cream); box-shadow: var(--shadow-brand); }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-ghost { background: var(--card); color: var(--cream); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: var(--muted); }
+  .btn-ai { background: rgba(229,185,85,0.1); border: 1px solid rgba(229,185,85,0.4); color: var(--gold); }
+  .btn-ai:hover { background: var(--gold); color: var(--ink); }
+  .btn-lg { padding: 16px 24px; font-size: 13px; }
+  .menu-btn { background: none; border: 0; color: var(--cream); cursor: pointer; padding: 8px; }
+  .mobile-menu { display: none; border-top: 1px solid var(--border); padding: 16px 20px; flex-direction: column; gap: 4px; }
+  .mobile-menu a { padding: 12px 0; font-weight: 500; }
+  .mobile-menu .btn { justify-content: center; margin-top: 8px; }
+  .mobile-menu.open { display: flex; }
+  @media (min-width: 768px) {
+    .nav-links { display: flex; }
+    .menu-btn { display: none; }
+    .mobile-menu { display: none !important; }
+  }
+
+  /* Kicker */
+  .kicker { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--border); background: var(--card); border-radius: 999px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted-fg); }
+  .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blood); }
+  .kicker.gold .dot { background: var(--gold); }
+
+  /* Hero */
+  .hero { padding: 40px 0 60px; }
+  .hero-grid { display: grid; gap: 40px; grid-template-columns: 1fr; }
+  .hero h1 { font-size: 64px; line-height: 0.9; margin-top: 24px; }
+  .hero h1 .red { color: var(--blood); }
+  .hero h1 .gold { color: var(--gold); }
+  .hero p { margin-top: 24px; max-width: 480px; color: var(--muted-fg); font-size: 17px; }
+  .hero-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .stats { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .stat-n { font-family: "Bebas Neue"; font-size: 32px; }
+  .stat-l { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted-fg); }
+  .hero-img-wrap { position: relative; }
+  .hero-img-wrap::before { content: ""; position: absolute; inset: -16px; background: radial-gradient(ellipse at top left, rgba(214,61,43,0.3), transparent 60%); filter: blur(40px); z-index: -1; }
+  .hero-img { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow-lift); }
+  .hero-img img { width: 100%; height: 520px; object-fit: cover; }
+  .hero-img-cap { position: absolute; inset: auto 0 0 0; padding: 20px; display: flex; align-items: end; justify-content: space-between; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); }
+  .hero-img-cap .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cream-70); }
+  .hero-img-cap .name { font-family: "Bebas Neue"; font-size: 24px; margin-top: 4px; }
+  .price-tag { background: var(--cream); color: var(--ink); padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+  @media (min-width: 768px) {
+    .hero { padding: 80px 0 100px; }
+    .hero-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 96px; }
+    .hero-img img { height: 640px; }
+  }
+
+  /* Marquee */
+  .marquee { background: var(--blood); color: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 14px 0; }
+  .marquee-track { display: flex; gap: 40px; white-space: nowrap; font-family: "Bebas Neue"; font-size: 20px; letter-spacing: 0.15em; animation: marquee 30s linear infinite; padding-left: 20px; }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 40px; }
+  .marquee-track .sep { color: var(--gold); }
+  @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-33.333%);} }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  .section-head { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .section-head h2 { font-size: 48px; }
+  .section-head p { max-width: 560px; color: var(--muted-fg); }
+  @media (min-width: 768px) { .section-head h2 { font-size: 64px; } }
+
+  /* Product grid */
+  .grid { margin-top: 48px; display: grid; gap: 24px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  .card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); background: var(--card); border-radius: 12px; transition: transform .3s, box-shadow .3s; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+  .card-img { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--muted); }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s; }
+  .card:hover .card-img img { transform: scale(1.05); }
+  .card-tag { position: absolute; top: 12px; left: 12px; background: var(--blood); color: var(--cream); padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; }
+  .card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+  .card-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+  .card-title { font-family: "Bebas Neue"; font-size: 22px; line-height: 1.05; }
+  .card-price { font-family: "Bebas Neue"; font-size: 22px; color: var(--gold); }
+  .card-desc { margin-top: 8px; font-size: 14px; color: var(--muted-fg); flex: 1; }
+  .card .btn { margin-top: 20px; justify-content: center; }
+
+  /* Slider */
+  .slider-wrap { margin-top: 48px; }
+  .slider-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 16px; scrollbar-width: none; }
+  .slider-track::-webkit-scrollbar { display: none; }
+  .slider-item { flex-shrink: 0; scroll-snap-align: start; width: 78%; }
+  @media (min-width: 640px) { .slider-item { width: 46%; } }
+  @media (min-width: 1024px) { .slider-item { width: 32%; } }
+  .video-item { width: 86%; }
+  @media (min-width: 640px) { .video-item { width: 62%; } }
+  @media (min-width: 1024px) { .video-item { width: 48%; } }
+  .figure { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); }
+  .figure img { width: 100%; height: 100%; object-fit: cover; }
+  .figure figcaption { position: absolute; inset: auto 0 0 0; padding: 16px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); font-size: 14px; font-weight: 500; }
+  .slider-nav { margin-top: 16px; display: flex; gap: 8px; }
+  .nav-btn { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--cream); cursor: pointer; transition: background .2s; }
+  .nav-btn:hover { background: var(--muted); }
+  .video-bg { background: rgba(35,34,32,0.4); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .video-card { position: relative; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: #000; display: block; }
+  .video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: transform .3s, opacity .3s; }
+  .video-card:hover img { transform: scale(1.05); opacity: 1; }
+  .video-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent 60%); }
+  .play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 64px; height: 64px; border-radius: 50%; background: rgba(214,61,43,0.9); display: grid; place-items: center; color: var(--cream); box-shadow: var(--shadow-brand); transition: transform .3s; }
+  .video-card:hover .play { transform: translate(-50%,-50%) scale(1.1); }
+  .video-cap { position: absolute; inset: auto 0 0 0; padding: 16px; display: flex; justify-content: space-between; align-items: end; }
+  .video-cap .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cream-70); }
+  .video-cap .name { font-family: "Bebas Neue"; font-size: 20px; margin-top: 4px; }
+  .video-len { background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+
+  /* Story */
+  .story-grid { display: grid; gap: 40px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .story-grid { grid-template-columns: 1fr 1fr; } }
+  .story p { margin-top: 24px; color: var(--muted-fg); }
+  .features { margin-top: 32px; display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .features { grid-template-columns: repeat(3, 1fr); } }
+  .feature { padding: 16px; border: 1px solid var(--border); background: var(--card); border-radius: 8px; }
+  .feature-icon { width: 36px; height: 36px; border-radius: 4px; background: rgba(214,61,43,0.15); color: var(--blood); display: grid; place-items: center; margin-bottom: 8px; }
+  .feature-title { font-family: "Bebas Neue"; font-size: 18px; }
+  .feature-text { font-size: 12px; color: var(--muted-fg); margin-top: 4px; }
+  .story-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .story-imgs img { aspect-ratio: 3/4; width: 100%; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
+  .story-imgs img:nth-child(even) { margin-top: 32px; }
+
+  /* Terms */
+  .terms-bg { background: rgba(35,34,32,0.4); border-top: 1px solid var(--border); }
+  .terms { max-width: 800px; margin: 0 auto; }
+  .faq { margin-top: 40px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); overflow: hidden; }
+  details { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+  details:last-child { border-bottom: 0; }
+  details[open] { background: rgba(42,41,38,0.5); }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; list-style: none; font-family: "Bebas Neue"; font-size: 18px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--blood); font-size: 20px; transition: transform .2s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin-top: 12px; font-size: 14px; color: var(--muted-fg); }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); background: var(--ink); }
+  .foot-inner { display: flex; flex-direction: column; gap: 32px; padding: 48px 20px; max-width: 1200px; margin: 0 auto; }
+  @media (min-width: 768px) { .foot-inner { flex-direction: row; justify-content: space-between; align-items: flex-start; } }
+  .foot-brand p { margin-top: 16px; font-size: 14px; color: var(--muted-fg); max-width: 320px; }
+  .foot-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; font-size: 14px; }
+  .foot-cols h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted-fg); margin-bottom: 12px; font-weight: 600; }
+  .foot-cols ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .foot-cols a { display: inline-flex; align-items: center; gap: 8px; }
+  .foot-cols a:hover { color: var(--blood); }
+  .copy { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 12px; color: var(--muted-fg); }
+
+  /* Icons */
+  .ico { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<!-- SVG icon defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 10l-5.1 3.2L17 20l-5-3.5L7 20l2.1-6.8L4 10l6.1-1.2z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3v18l14-9z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4a4 4 0 1 1-7.9 1.2 4 4 0 0 1 7.9-1.2z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">D</span>
+      <span class="logo-text">D-STYLE</span>
+    </a>
+    <nav class="nav-links">
+      <a class="link" href="#shop">Shop</a>
+      <a class="link" href="#gallery">Gallery</a>
+      <a class="link" href="#videos">Videos</a>
+      <a class="link" href="#story">Story</a>
+      <a class="link" href="#terms">Terms</a>
+      <a class="btn btn-ai" href="https://neura-prompt-ai.vercel.app" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-sparkle"/></svg> Ask AI</a>
+      <a class="btn btn-primary" href="https://wa.me/27833634491?text=Hi%20D-Style%2C%20I'd%20like%20to%20order" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-msg"/></svg> Order</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg class="ico" style="width:24px;height:24px"><use href="#i-menu"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#shop">Shop</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#videos">Videos</a>
+    <a href="#story">Story</a>
+    <a href="#terms">Terms</a>
+    <a class="btn btn-ai" href="https://neura-prompt-ai.vercel.app" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-sparkle"/></svg> Ask AI</a>
+    <a class="btn btn-primary" href="https://wa.me/27833634491?text=Hi%20D-Style%2C%20I'd%20like%20to%20order" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-msg"/></svg> Order on WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span>SS26 Drop — Live Now</span>
+      <h1>Wear the <span class="red">journey.</span><br/>Own the <span class="gold">style.</span></h1>
+      <p>D-Style is premium branded streetwear made in South Africa. Bold cuts, clean fits, and colourways for every mindset.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#shop"><svg class="ico" style="width:16px;height:16px"><use href="#i-bag"/></svg> Shop the drop</a>
+        <a class="btn btn-ghost btn-lg" href="https://wa.me/27833634491?text=Hi%20D-Style%2C%20I'd%20like%20the%20full%20catalogue" target="_blank" rel="noopener"><svg class="ico" style="width:16px;height:16px"><use href="#i-msg"/></svg> Order on WhatsApp</a>
+      </div>
+      <div class="stats">
+        <div><div class="stat-n">4K+</div><div class="stat-l">Trackpants</div></div>
+        <div><div class="stat-n">6</div><div class="stat-l">Colourways</div></div>
+        <div><div class="stat-n">100%</div><div class="stat-l">Direct order</div></div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img">
+        <img src="images/hero.jpg" alt="D-Style signature white tracksuit" />
+        <div class="hero-img-cap">
+          <div>
+            <div class="lbl">Signature Fit</div>
+            <div class="name">White on White</div>
+          </div>
+          <div class="price-tag">R899</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>VISION <span class="sep">◆</span></span>
+    <span>CONSISTENCY <span class="sep">◆</span></span>
+    <span>BELIEF <span class="sep">◆</span></span>
+    <span>WEAR IT <span class="sep">◆</span></span>
+    <span>RESELL IT <span class="sep">◆</span></span>
+    <span>BE PART OF THE JOURNEY <span class="sep">◆</span></span>
+    <span>VISION <span class="sep">◆</span></span>
+    <span>CONSISTENCY <span class="sep">◆</span></span>
+    <span>BELIEF <span class="sep">◆</span></span>
+    <span>WEAR IT <span class="sep">◆</span></span>
+    <span>RESELL IT <span class="sep">◆</span></span>
+    <span>BE PART OF THE JOURNEY <span class="sep">◆</span></span>
+    <span>VISION <span class="sep">◆</span></span>
+    <span>CONSISTENCY <span class="sep">◆</span></span>
+    <span>BELIEF <span class="sep">◆</span></span>
+    <span>WEAR IT <span class="sep">◆</span></span>
+    <span>RESELL IT <span class="sep">◆</span></span>
+    <span>BE PART OF THE JOURNEY <span class="sep">◆</span></span>
+  </div>
+</div>
+
+<section id="shop">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker gold"><span class="dot"></span>Shop</span>
+      <h2>The Collection</h2>
+      <p>Every piece built to be worn hard and last longer.</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker gold"><span class="dot"></span>Gallery</span>
+      <h2>Lookbook</h2>
+      <p>Swipe through the latest fits from the street.</p>
+    </div>
+    <div class="slider-wrap">
+      <div class="slider-track" id="galleryTrack"></div>
+      <div class="slider-nav">
+        <button class="nav-btn" onclick="scrollSlider('galleryTrack',-1)" aria-label="Previous"><svg class="ico" style="width:20px;height:20px"><use href="#i-left"/></svg></button>
+        <button class="nav-btn" onclick="scrollSlider('galleryTrack',1)" aria-label="Next"><svg class="ico" style="width:20px;height:20px"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="videos" class="video-bg">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker gold"><span class="dot"></span>Videos</span>
+      <h2>On Motion</h2>
+      <p>Campaign films & behind-the-scenes drops.</p>
+    </div>
+    <div class="slider-wrap">
+      <div class="slider-track" id="videoTrack"></div>
+      <div class="slider-nav">
+        <button class="nav-btn" onclick="scrollSlider('videoTrack',-1)" aria-label="Previous"><svg class="ico" style="width:20px;height:20px"><use href="#i-left"/></svg></button>
+        <button class="nav-btn" onclick="scrollSlider('videoTrack',1)" aria-label="Next"><svg class="ico" style="width:20px;height:20px"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="story" class="story">
+  <div class="container story-grid">
+    <div>
+      <div class="section-head">
+        <span class="kicker gold"><span class="dot"></span>The Brand</span>
+        <h2>4,000 Pieces. No excuses.</h2>
+      </div>
+      <p>D-Style was built on a simple promise: vision, consistency, belief. Every hoodie, every tracksuit, every cap carries the story of a hustle you can wear. Made for the ones who don't wait for permission.</p>
+      <div class="features">
+        <div class="feature"><div class="feature-icon"><svg class="ico" style="width:20px;height:20px"><use href="#i-shield"/></svg></div><div class="feature-title">Premium fabric</div><div class="feature-text">Heavyweight fleece & poly-cotton blends built to last.</div></div>
+        <div class="feature"><div class="feature-icon"><svg class="ico" style="width:20px;height:20px"><use href="#i-truck"/></svg></div><div class="feature-title">Nationwide delivery</div><div class="feature-text">Ships across South Africa. Fast, tracked, secure.</div></div>
+        <div class="feature"><div class="feature-icon"><svg class="ico" style="width:20px;height:20px"><use href="#i-star"/></svg></div><div class="feature-title">Direct from brand</div><div class="feature-text">No middlemen. Order straight from the team.</div></div>
+      </div>
+      <a class="btn btn-ai btn-lg" style="margin-top:32px" href="https://neura-prompt-ai.vercel.app" target="_blank" rel="noopener"><svg class="ico" style="width:16px;height:16px"><use href="#i-sparkle"/></svg> Ask our AI stylist</a>
+    </div>
+    <div class="story-imgs">
+      <img src="images/red.jpg" alt="Red fit" loading="lazy" />
+      <img src="images/beanie.jpg" alt="Beanie" loading="lazy" />
+      <img src="images/flatlay.jpg" alt="Flatlay" loading="lazy" />
+      <img src="images/black.jpg" alt="Black fit" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section id="terms" class="terms-bg">
+  <div class="container terms">
+    <div class="section-head">
+      <span class="kicker gold"><span class="dot"></span>Info</span>
+      <h2>Terms & Purchase</h2>
+    </div>
+    <div class="faq">
+      <details><summary>How do I order?</summary><p>Tap any Order button. You'll be sent to WhatsApp with your item pre-filled. Confirm size, colour, and delivery address with our team.</p></details>
+      <details><summary>Payment</summary><p>Payments are handled directly with the D-Style team over WhatsApp — EFT, cash on delivery (selected areas), or instant bank transfer.</p></details>
+      <details><summary>Delivery</summary><p>Nationwide delivery across South Africa via courier. Delivery fees are quoted based on your area during checkout on WhatsApp.</p></details>
+      <details><summary>Returns & exchanges</summary><p>Unworn items with tags can be exchanged within 7 days of delivery. Sale items are final. Customer covers return shipping.</p></details>
+      <details><summary>Sizing</summary><p>All fits are true-to-size. Reach out on WhatsApp for a full size chart or personal sizing advice.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">D</span><span class="logo-text">D-STYLE</span></div>
+      <p>Premium branded streetwear. Vision. Consistency. Belief.</p>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">Collection</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/27833634491" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-msg"/></svg> WhatsApp</a></li>
+          <li><a href="https://neura-prompt-ai.vercel.app" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-sparkle"/></svg> Ask AI</a></li>
+          <li><a href="#"><svg class="ico" style="width:14px;height:14px"><use href="#i-ig"/></svg> @d.style</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="copy">© <span id="year"></span> D-Style. All rights reserved.</div>
+</footer>
+
+<script>
+  const WA = "27833634491";
+  const wa = (t) => `https://wa.me/${WA}?text=${encodeURIComponent("Hi D-Style, I'd like to order: " + t)}`;
+
+  const products = [
+    { name: "Signature White Tracksuit", price: "R899", tag: "Bestseller", image: "images/hero.jpg", desc: "Cream hoodie & jogger set with embroidered D-Style script." },
+    { name: "Blackout Hoodie Set", price: "R849", tag: "New", image: "images/black.jpg", desc: "Midnight black premium fleece. Everyday statement." },
+    { name: "Blood Red Tracksuit", price: "R899", tag: "Hustle", image: "images/red.jpg", desc: "Bold red. Energy. Power. Hustler mindset." },
+    { name: "D-Style Cream Beanie", price: "R199", tag: "Essential", image: "images/beanie.jpg", desc: "Ribbed knit with embroidered script logo." },
+    { name: "Trackpants — 6 Colourways", price: "R449", tag: "Drop", image: "images/trackpants.png", desc: "Blue, Pink, Green, Red, Purple, Navy. Pick your vibe." },
+    { name: "The Essentials Bundle", price: "R1 199", tag: "Bundle", image: "images/flatlay.jpg", desc: "Hoodie + joggers + cap. Save 15% on the full fit." },
+  ];
+  const gallery = ["images/hero.jpg","images/black.jpg","images/red.jpg","images/trackpants.png","images/flatlay.jpg","images/beanie.jpg"];
+  const videos = [
+    { title: "The White Fit — SS26 Drop", poster: "images/hero.jpg", length: "0:32" },
+    { title: "Blackout Series", poster: "images/black.jpg", length: "0:45" },
+    { title: "Streets in Red", poster: "images/red.jpg", length: "0:28" },
+    { title: "4,000 Trackpants Drop", poster: "images/trackpants.png", length: "1:12" },
+  ];
+
+  document.getElementById("productGrid").innerHTML = products.map(p => `
+    <article class="card">
+      <div class="card-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" />
+        <span class="card-tag">${p.tag}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <h3 class="card-title">${p.name}</h3>
+          <div class="card-price">${p.price}</div>
+        </div>
+        <p class="card-desc">${p.desc}</p>
+        <a class="btn btn-primary" href="${wa(p.name + " — " + p.price)}" target="_blank" rel="noopener"><svg class="ico" style="width:14px;height:14px"><use href="#i-msg"/></svg> Order via WhatsApp</a>
+      </div>
+    </article>`).join("");
+
+  document.getElementById("galleryTrack").innerHTML = gallery.map((src, i) => `
+    <figure class="slider-item figure">
+      <img src="${src}" alt="D-Style look ${i+1}" loading="lazy" />
+      <figcaption>Look #${String(i+1).padStart(2,"0")}</figcaption>
+    </figure>`).join("");
+
+  document.getElementById("videoTrack").innerHTML = videos.map(v => `
+    <a class="slider-item video-item video-card" href="${wa("Video: " + v.title)}" target="_blank" rel="noopener">
+      <img src="${v.poster}" alt="${v.title}" loading="lazy" />
+      <div class="video-overlay"></div>
+      <div class="play"><svg class="ico" style="width:28px;height:28px"><use href="#i-play"/></svg></div>
+      <div class="video-cap">
+        <div>
+          <div class="lbl">Campaign</div>
+          <div class="name">${v.title}</div>
+        </div>
+        <span class="video-len">${v.length}</span>
+      </div>
+    </a>`).join("");
+
+  function scrollSlider(id, dir) {
+    const el = document.getElementById(id);
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: "smooth" });
+  }
+
+  const mb = document.getElementById("menuBtn");
+  const mm = document.getElementById("mobileMenu");
+  mb.addEventListener("click", () => {
+    mm.classList.toggle("open");
+    mb.innerHTML = mm.classList.contains("open")
+      ? '<svg class="ico" style="width:24px;height:24px"><use href="#i-x"/></svg>'
+      : '<svg class="ico" style="width:24px;height:24px"><use href="#i-menu"/></svg>';
+  });
+  mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mm.classList.remove("open")));
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
